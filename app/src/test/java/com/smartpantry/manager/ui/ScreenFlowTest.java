@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
@@ -69,6 +70,22 @@ public class ScreenFlowTest {
         MainActivity activity = Robolectric.buildActivity(MainActivity.class).setup().get();
         assertEquals(View.VISIBLE, activity.findViewById(R.id.emptyState).getVisibility());
         assertEquals(View.GONE, activity.findViewById(R.id.pantryRecyclerView).getVisibility());
+    }
+
+    @Test
+    public void addButtonShowsItsLabelAgainWhenThePantryBecomesEmpty() {
+        pantryRepository.insertAll(DemoPantryData.getItems(LocalDate.now()));
+        ActivityController<MainActivity> controller = Robolectric.buildActivity(MainActivity.class).setup();
+        ExtendedFloatingActionButton fab = controller.get().findViewById(R.id.fabAdd);
+        fab.shrink(); // as if the user had scrolled down the list
+        ShadowLooper.idleMainLooper();
+
+        controller.pause();
+        pantryRepository.deleteAll();
+        controller.resume();
+        ShadowLooper.idleMainLooper();
+
+        assertTrue(fab.isExtended());
     }
 
     @Test

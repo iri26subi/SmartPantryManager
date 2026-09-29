@@ -110,6 +110,10 @@ public class MainActivity extends BaseActivity implements PantryAdapter.Listener
         boolean isEmpty = items.isEmpty();
         emptyState.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
         recyclerView.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+        if (isEmpty) {
+            // Nothing to scroll, so show the full "Add ingredient" label again.
+            fabAdd.extend();
+        }
         toolbar.setSubtitle(isEmpty ? null
                 : getResources().getQuantityString(R.plurals.pantry_summary, items.size(), items.size()));
 
