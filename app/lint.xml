@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lint checks that are intentionally ignored, with the reason. -->
+<lint>
+    <!-- The adaptive launcher icon must stay in mipmap-anydpi-v26: moving it to
+         mipmap-anydpi (as this check suggests) makes resource linking fail with
+         "resource mipmap/ic_launcher not found". -->
+    <issue id="ObsoleteSdkInt">
+        <ignore path="src/main/res/mipmap-anydpi-v26" />
+    </issue>
+
+    <!-- targetSdk 36 is the latest stable Android release; newer platforms
+         available in the SDK manager are previews. -->
+    <issue id="OldTargetApi" severity="ignore" />
+</lint>
