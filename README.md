@@ -1,11 +1,14 @@
 # Smart Pantry Manager
 
+[![Android CI](https://github.com/iri26subi/SmartPantryManager/actions/workflows/android-ci.yml/badge.svg)](https://github.com/iri26subi/SmartPantryManager/actions/workflows/android-ci.yml)
+
 A Java Android app that helps reduce food waste. You record the ingredients you
 already have at home (your "pantry"), and the app suggests recipes you can cook
 **using only those ingredients**. A recipe is suggested only if *every*
 ingredient it needs is in your pantry in at least the required quantity.
 
-Built for Mobile App Development 700 (practical assignment).
+Built for Mobile App Development 700 (practical assignment) by **Irfaan Subrathee** (student number 402311943).
+Repository: https://github.com/iri26subi/SmartPantryManager
 
 ## Features
 
@@ -22,6 +25,16 @@ screen change uses an explicit `Intent`; item and recipe ids are passed as
 Intent extras.
 
 The app uses no maps, location or internet permissions.
+
+## Screenshots
+
+Captured from the app running on an Android emulator. More are in [`docs/screenshots`](docs/screenshots).
+
+| Pantry | Add (validation) | Suggested recipes | Recipe detail |
+|---|---|---|---|
+| <img src="docs/screenshots/02-pantry-list.png" width="200" alt="Pantry list"> | <img src="docs/screenshots/03-add-validation-errors.png" width="200" alt="Validation errors"> | <img src="docs/screenshots/07-suggested-recipes.png" width="200" alt="Suggested recipes"> | <img src="docs/screenshots/10-recipe-detail-can-cook.png" width="200" alt="Recipe detail"> |
+| **Almost there** | **Strict rule: eggs 6 → 2** | **Settings** | **Empty pantry** |
+| <img src="docs/screenshots/08-almost-there.png" width="200" alt="Almost there"> | <img src="docs/screenshots/12-strict-rule-eggs-reduced.png" width="200" alt="Recipes after reducing eggs"> | <img src="docs/screenshots/13-settings.png" width="200" alt="Settings"> | <img src="docs/screenshots/01-pantry-empty.png" width="200" alt="Empty pantry"> |
 
 ## Database choice: SQLite (SQLiteOpenHelper)
 
@@ -96,7 +109,7 @@ app/src/main/java/com/smartpantry/manager/
 │               SuggestedRecipesActivity, RecipeDetailActivity, SettingsActivity
 ├── ui/adapter/ PantryAdapter, RecipeAdapter, IngredientCheckAdapter
 └── util/       IngredientValidator, ExpiryUtils, QuantityFormatter
-app/src/test/java/...   73 JVM unit tests (JUnit 4 + Robolectric)
+app/src/test/java/...   81 JVM unit tests (JUnit 4 + Robolectric)
 ```
 
 ## Requirements
@@ -110,7 +123,7 @@ app/src/test/java/...   73 JVM unit tests (JUnit 4 + Robolectric)
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/SmartPantryManager.git
+   git clone https://github.com/iri26subi/SmartPantryManager.git
    ```
 2. In Android Studio choose **File → Open** and select the `SmartPantryManager` folder.
 3. Wait for the Gradle sync to finish. If Studio asks to install SDK Platform 36, accept.
@@ -135,12 +148,12 @@ Android Studio's bundled one: `C:\Program Files\Android\Android Studio\jbr`.
 
 ## Tests
 
-`./gradlew testDebugUnitTest` runs 73 tests:
+`./gradlew testDebugUnitTest` runs 81 tests (also run by GitHub Actions on every push):
 
 - `RecipeMatcherTest`: the brief's examples (3 eggs vs 4 or 2, missing milk, 4 of 5
   ingredients), plurals, unrelated names, unit conversion, incompatible units,
   duplicate aggregation, expiry setting, the "Almost there" list.
-- `IngredientNormalizerTest`, `UnitConverterTest`, `IngredientValidatorTest`
+- `IngredientNormalizerTest`, `UnitConverterTest`, `IngredientValidatorTest`, `ExpiryUtilsTest`, `QuantityFormatterTest`
 - `RecipeSeedDataTest`: at least 20 complete recipes with supported units.
 - `DatabaseTest` (Robolectric, real SQLite): seeding without duplicates, the full
   pantry CRUD cycle, data persisting after reopening, CHECK constraint, cascade
