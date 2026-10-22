@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme palette -->
+    <color name="brand_primary">#9DD49A</color>
+    <color name="brand_on_primary">#00390A</color>
+    <color name="brand_primary_container">#0F5223</color>
+    <color name="brand_on_primary_container">#B9F0B5</color>
+    <color name="brand_secondary">#B9CCB4</color>
+    <color name="brand_secondary_container">#3B4B39</color>
+    <color name="brand_on_secondary_container">#D5E8CF</color>
+
+    <color name="warning_container">#4A3A00</color>
+    <color name="on_warning_container">#FFE08A</color>
+    <color name="status_ok">#9DD49A</color>
+    <color name="status_bad">#FFB4AB</color>
+</resources>

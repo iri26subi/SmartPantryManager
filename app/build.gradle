@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace = 'com.smartpantry.manager'
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId = 'com.smartpantry.manager'
+        // API 26 (Android 8.0) gives us java.time.LocalDate for expiry dates.
+        minSdk = 26
+        targetSdk = 36
+        versionCode = 1
+        versionName = '1.0'
+
+        testInstrumentationRunner = 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        // Generates BuildConfig.VERSION_NAME, shown on the Settings screen
+        buildConfig = true
+    }
+
+    testOptions {
+        unitTests {
+            // Lets Robolectric tests load the app's resources and manifest
+            includeAndroidResources = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+
+    // Plain JVM unit tests for the recipe-matching logic
+    testImplementation 'junit:junit:4.13.2'
+    // Runs the SQLite database tests on the JVM with a simulated Android framework
+    testImplementation 'org.robolectric:robolectric:4.16.1'
+}

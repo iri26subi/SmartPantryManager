@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Include the pantry database and settings in Android auto-backup -->
+<full-backup-content>
+    <include domain="database" path="smart_pantry.db" />
+    <include domain="sharedpref" path="smart_pantry_settings.xml" />
+</full-backup-content>

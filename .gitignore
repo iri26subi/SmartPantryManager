@@ -1,0 +1,21 @@
+# Gradle / Android Studio
+.gradle/
+build/
+/app/build/
+local.properties
+.idea/
+*.iml
+.cxx/
+.externalNativeBuild/
+captures/
+.navigation/
+# OS files
+.DS_Store
+Thumbs.db
+# Signing keys
+*.jks
+*.keystore
+# Duplicate copy of the project created when the folder was moved (not part of the project)
+/SmartPantryManager/
+# Assignment brief from the lecturer (not project source)
+*ASSIGNMENT*.pdf
