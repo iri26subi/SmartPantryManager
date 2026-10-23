@@ -6,15 +6,21 @@ prompts, not lines to read out. Record at 1080p (OBS Studio works well), export
 as MP4 (H.264) and keep the file small enough for the 50 MB ZIP limit.
 
 **Before recording:** uninstall the app from the emulator (fresh install), open
-Android Studio with the key files in tabs, and open your GitHub repository in a browser.
+Android Studio with the key files in tabs (`RecipeMatcher.java`, `MatchResult.java`,
+`DatabaseHelper.java`, `PantryRepository.java`, `PantryAdapter.java`, `MainActivity.java`),
+open https://github.com/iri26subi/SmartPantryManager in a browser, and have the
+presentation deck ready. Its speaker notes follow this script.
 
 ---
 
 ## 1. GitHub walkthrough (≈ 1:00)
 
-- Show the repository page and the README.
+- Show the repository page, the README (screenshots, database choice) and the green
+  **Android CI** badge.
 - Open **Commits** and scroll through the history from oldest to newest.
-- Briefly say how the project developed: what you did first, what you added, what you fixed.
+- Briefly say how the project developed: the initial app, the add-button bug found on the
+  emulator and fixed with a test, extra unit tests, the CI workflow (and the failed first run
+  caused by `gradlew` not being executable), then documentation, screenshots and the report.
 
 ## 2. Live app demo (≈ 2:30)
 
